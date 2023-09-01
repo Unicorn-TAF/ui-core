@@ -162,13 +162,32 @@ namespace Unicorn.UI.Core.PageObject
         private static ByLocator GetControlLocator(MemberInfo memberInfo, Type controlType)
         {
             FindAttribute findAttribute = memberInfo.GetCustomAttribute<FindAttribute>(true);
-
-            if (findAttribute == null)
+            
+            if (findAttribute != null)
             {
-                findAttribute = controlType.GetCustomAttribute<FindAttribute>(true);
+                return findAttribute.Locator;
             }
 
-            return findAttribute?.Locator;
+            FindParamAttribute findParamAttribute = memberInfo.GetCustomAttribute<FindParamAttribute>(true);
+
+            if (findParamAttribute != null)
+            {
+                FindTemplateAttribute findTemplateAttribute = 
+                    controlType.GetCustomAttribute<FindTemplateAttribute>(true);
+
+                string locator;
+
+                if (findTemplateAttribute == null) 
+                {
+                    throw new CustomAttributeFormatException(
+                        "locator template is not specified for type " + controlType.Name);
+                }
+
+                locator = string.Format(findTemplateAttribute.LocatorTemplate, findParamAttribute.LocatorParam);
+                return new ByLocator(findTemplateAttribute.How, locator);
+            }
+
+            return controlType.GetCustomAttribute<FindAttribute>(true)?.Locator;
         }
 
         private static Type GetChildrenType(Type memberType) =>
