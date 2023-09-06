@@ -21,8 +21,4 @@
     <Reference Include="System.Runtime" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UnitTests\" />
-  </ItemGroup>
-
 </Project>
