@@ -18,7 +18,7 @@ namespace Unicorn.UI.Core.PageObject
         }
 
         /// <summary>
-        /// Gets control locator.
+        /// Gets parameter value.
         /// </summary>
         public string LocatorParam 
         { 

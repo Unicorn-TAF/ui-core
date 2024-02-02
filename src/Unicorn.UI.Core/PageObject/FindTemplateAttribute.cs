@@ -4,7 +4,7 @@ using Unicorn.UI.Core.Driver;
 namespace Unicorn.UI.Core.PageObject
 {
     /// <summary>
-    /// Provides with ability to specify search condition template for UI control PageObject
+    /// Provides with ability to specify search condition template for PageObject UI control
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class FindTemplateAttribute : Attribute
@@ -30,7 +30,7 @@ namespace Unicorn.UI.Core.PageObject
         }
 
         /// <summary>
-        /// Gets templated control locator.
+        /// Gets control locator template.
         /// </summary>
         public string LocatorTemplate
         {
