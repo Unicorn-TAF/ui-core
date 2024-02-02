@@ -175,15 +175,13 @@ namespace Unicorn.UI.Core.PageObject
                 FindTemplateAttribute findTemplateAttribute = 
                     controlType.GetCustomAttribute<FindTemplateAttribute>(true);
 
-                string locator;
-
                 if (findTemplateAttribute == null) 
                 {
                     throw new CustomAttributeFormatException(
-                        "locator template is not specified for type " + controlType.Name);
+                        "Locator template is not specified for type " + controlType.Name);
                 }
 
-                locator = string.Format(findTemplateAttribute.LocatorTemplate, findParamAttribute.LocatorParam);
+                string locator = string.Format(findTemplateAttribute.LocatorTemplate, findParamAttribute.LocatorParam);
                 return new ByLocator(findTemplateAttribute.How, locator);
             }
 
