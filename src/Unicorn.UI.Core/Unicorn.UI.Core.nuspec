@@ -2,13 +2,13 @@
 <package >
   <metadata>
     <id>Unicorn.UI.Core</id>
-    <version>3.1.0</version>
+    <version>$version$</version>
     <title>Unicorn.UI.Core</title>
     <authors>Vitaliy Dobriyan</authors>
     <license type="expression">Apache-2.0</license>
-    <copyright>Copyright (c) Vitaliy Dobriyan 2022</copyright>
-    <projectUrl>https://bitbucket.org/dobriyanchik/unicorntaf</projectUrl>
-    <repository type="git" url="https://bitbucket.org/dobriyanchik/unicorntaf"/>
+    <copyright>Copyright (c) Vitaliy Dobriyan 2024</copyright>
+    <projectUrl>https://unicorn-taf.github.io</projectUrl>
+    <repository type="git" url="https://github.com/Unicorn-TAF/ui-core"/>
     <icon>images\icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
@@ -16,8 +16,8 @@
       Unicorn UI Core features: Common controls interfaces, UI matchers for common controls, synchronization methods (waits), core for different UI implementations.
       This package includes UI core of unicorn automation framework.
     </description>
-    <releaseNotes>Search for controls list by [Find] attribute, control name specification at Type level, generic method for UI control existence in PageObject.</releaseNotes>
-    <tags>automation ui matchers</tags>
+    <releaseNotes>Implemented templated locators: [FindTemplate] attribute specifies template of control locator, [FindParam] attribute specifies parameters for the template.</releaseNotes>
+    <tags>unicorn-taf automation ui matchers</tags>
     <dependencies>
       <group targetFramework="net452">
         <dependency id="Unicorn.Taf.Core" version="3.0.0"/>
