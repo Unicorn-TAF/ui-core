@@ -83,8 +83,8 @@ namespace Unicorn.UI.Core.Synchronization
                 throw new ArgumentException($"Can only wait on an object or boolean response, tried to use type: " + resultType, "condition");
             }
 
-            Logger.Instance.Log(LogLevel.Debug, 
-                $"Waiting for {Input} {condition.Method.Name} during {Timeout:mm\\:ss\\.fff} with polling interval {PollingInterval:mm\\:ss\\.fff}");
+            ULog.Debug("Waiting for {0} {1} during {2:mm\\:ss\\.fff} with polling interval {3:mm\\:ss\\.fff}",
+                Input, condition.Method.Name, Timeout, PollingInterval);
 
             Exception lastException = null;
             Timer
@@ -101,7 +101,7 @@ namespace Unicorn.UI.Core.Synchronization
                         var boolResult = result as bool?;
                         if (boolResult.HasValue && boolResult.Value)
                         {
-                            Logger.Instance.Log(LogLevel.Trace, string.Format(WaitSuccessTemplate, Timer.Elapsed));
+                            ULog.Trace(WaitSuccessTemplate, Timer.Elapsed);
                             return result;
                         }
                     }
@@ -109,7 +109,7 @@ namespace Unicorn.UI.Core.Synchronization
                     {
                         if (result != null)
                         {
-                            Logger.Instance.Log(LogLevel.Trace, string.Format(WaitSuccessTemplate, Timer.Elapsed));
+                            ULog.Trace(WaitSuccessTemplate, Timer.Elapsed);
                             return result;
                         }
                     }
@@ -161,8 +161,8 @@ namespace Unicorn.UI.Core.Synchronization
                 throw new ArgumentException("Can only wait on an object or boolean response, tried to use type: " + resultType, "condition");
             }
 
-            Logger.Instance.Log(LogLevel.Debug, 
-                $"Waiting for {Input} '{_attributeName}' {condition.Method.Name} '{_valueValue}' during {Timeout:mm\\:ss\\.fff} with polling interval {PollingInterval:mm\\:ss\\.fff}");
+            ULog.Debug("Waiting for {0} '{1}' {2} '{3}' during {4:mm\\:ss\\.fff} with polling interval {5:mm\\:ss\\.fff}",
+                Input, _attributeName, condition.Method.Name, _valueValue, Timeout, PollingInterval);
 
             Exception lastException = null;
             Timer
@@ -179,7 +179,7 @@ namespace Unicorn.UI.Core.Synchronization
                         var boolResult = result as bool?;
                         if (boolResult.HasValue && boolResult.Value)
                         {
-                            Logger.Instance.Log(LogLevel.Trace, string.Format(WaitSuccessTemplate, Timer.Elapsed));
+                            ULog.Trace(WaitSuccessTemplate, Timer.Elapsed);
                             return result;
                         }
                     }
@@ -187,7 +187,7 @@ namespace Unicorn.UI.Core.Synchronization
                     {
                         if (result != null)
                         {
-                            Logger.Instance.Log(LogLevel.Trace, string.Format(WaitSuccessTemplate, Timer.Elapsed));
+                            ULog.Trace(WaitSuccessTemplate, Timer.Elapsed);
                             return result;
                         }
                     }

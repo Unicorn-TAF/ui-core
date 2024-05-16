@@ -20,13 +20,13 @@
     <tags>unicorn-taf automation ui matchers</tags>
     <dependencies>
       <group targetFramework="net452">
-        <dependency id="Unicorn.Taf.Core" version="3.0.0"/>
+        <dependency id="Unicorn.Taf.Core" version="3.2.0"/>
       </group>
       <group targetFramework="net5.0">
-        <dependency id="Unicorn.Taf.Core" version="3.0.0"/>
+        <dependency id="Unicorn.Taf.Core" version="3.2.0"/>
       </group>
       <group targetFramework="netstandard2.0">
-        <dependency id="Unicorn.Taf.Core" version="3.0.0"/>
+        <dependency id="Unicorn.Taf.Core" version="3.2.0"/>
       </group>
     </dependencies>
   </metadata>
