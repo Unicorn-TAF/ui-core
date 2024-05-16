@@ -37,7 +37,7 @@ namespace Unicorn.UI.Core.Synchronization
         /// <exception cref="LoaderTimeoutException">is thrown if loader is still displayed after timeout expiration</exception>
         public void WaitFor(TimeSpan appearanceTimeout, TimeSpan disappearanceTimeout, TimeSpan pollingInterval)
         {
-            Logger.Instance.Log(LogLevel.Debug, $"{Prefix}Start");
+            ULog.Debug(Prefix + "Waiting for loading...");
 
             var timer = Stopwatch.StartNew();
             bool loaderAppeared;
@@ -50,7 +50,7 @@ namespace Unicorn.UI.Core.Synchronization
             }
             while (timer.Elapsed < appearanceTimeout && !loaderAppeared);
 
-            Logger.Instance.Log(LogLevel.Debug, $"\t{Prefix}appeared - {loaderAppeared} : {timer.ElapsedMilliseconds} ms.");
+            ULog.Debug(Prefix + "\tappeared - {0} : {1} ms.", loaderAppeared, timer.ElapsedMilliseconds);
 
             // Wait for loader disappearance during disappearance timeout.
             bool loaderDisappeared;
@@ -63,7 +63,7 @@ namespace Unicorn.UI.Core.Synchronization
 
             timer.Stop();
 
-            Logger.Instance.Log(LogLevel.Debug, $"\t{Prefix}disappeared - {loaderDisappeared} : {timer.ElapsedMilliseconds} ms.");
+            ULog.Debug(Prefix + "\tdisappeared - {0} : {1} ms.", loaderDisappeared, timer.ElapsedMilliseconds);
 
             if (!loaderDisappeared)
             {
