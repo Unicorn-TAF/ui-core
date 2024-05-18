@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Unicorn.UI.Core.Controls;
 
 namespace Unicorn.UI.Core.Driver
@@ -42,6 +44,21 @@ namespace Unicorn.UI.Core.Driver
         }
 
         /// <summary>
+        /// Finds <see cref="IControl"/> by specified locator during implicitly wait timeout.
+        /// </summary>
+        /// <param name="locator">locator to search by</param>
+        /// <returns><see cref="IControl"/> instance</returns>
+        /// <exception cref="ControlNotFoundException">Thrown in case control was not found during implicitly wait timeout</exception>
+        public IControl Find(ByLocator locator)
+        {
+            MethodInfo method = GetType().GetMethod(nameof(WaitForWrappedControl), 
+                BindingFlags.NonPublic | BindingFlags.Instance);
+
+            MethodInfo generic = method.MakeGenericMethod(ControlsBaseType);
+            return generic.Invoke(this, new object[] { locator }) as IControl;
+        }
+
+        /// <summary>
         /// Finds list of controls of specified type by specified locator during implicitly wait timeout.
         /// </summary>
         /// <typeparam name="T">control type</typeparam>
@@ -63,6 +80,21 @@ namespace Unicorn.UI.Core.Driver
         {
             T control;
             return TryGetChild<T>(locator, 0, out control);
+        }
+
+        /// <summary>
+        /// Immediately tries to get control by specified locator.
+        /// </summary>
+        /// <param name="locator">locator to search by</param>
+        /// <returns>true - if control was found; otherwise - false</returns>
+        public bool TryGetChild(ByLocator locator)
+        {
+            MethodInfo method = GetType().GetMethods()
+                .Where(m => m.IsGenericMethod && m.Name == nameof(TryGetChild))
+                .FirstOrDefault();
+
+            MethodInfo generic = method.MakeGenericMethod(ControlsBaseType);
+            return (bool)generic.Invoke(this, new object[] { locator });
         }
 
         /// <summary>
