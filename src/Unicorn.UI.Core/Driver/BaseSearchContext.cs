@@ -20,15 +20,18 @@ namespace Unicorn.UI.Core.Driver
         /// <summary>
         /// Gets default implicit wait timeout (30 seconds)
         /// </summary>
-        protected TimeSpan TimeoutDefault { get; } = TimeSpan.FromSeconds(30);
+        protected static TimeSpan TimeoutDefault { get; } = TimeSpan.FromSeconds(30);
+
+        /// <summary>
+        /// Gets or sets current implicit wait timeout.
+        /// For correct timeout restoring after TryGetChild call this property should be set 
+        /// </summary>
+        protected abstract TimeSpan ImplicitWaitTimeout { get; set; }
 
         /// <summary>
         /// Gets type of basic control for specific UI module implementation.
         /// </summary>
-        protected abstract Type ControlsBaseType
-        {
-            get;
-        }
+        protected abstract Type ControlsBaseType { get; }
 
         /// <summary>
         /// Finds control of specified type by specified locator during implicitly wait timeout.
@@ -104,11 +107,8 @@ namespace Unicorn.UI.Core.Driver
         /// <param name="locator">locator to search by</param>
         /// <param name="millisecondsTimeout">timeout in milliseconds to search for control</param>
         /// <returns>true - if control was found; otherwise - false</returns>
-        public bool TryGetChild<T>(ByLocator locator, int millisecondsTimeout) where T : IControl
-        {
-            T control;
-            return TryGetChild<T>(locator, millisecondsTimeout, out control);
-        }
+        public bool TryGetChild<T>(ByLocator locator, int millisecondsTimeout) where T : IControl =>
+            TryGetChild<T>(locator, millisecondsTimeout, out T control);
 
         /// <summary>
         /// Tries to get control by specified locator during specified timeout.
@@ -120,7 +120,8 @@ namespace Unicorn.UI.Core.Driver
         /// <returns>true - if control was found; otherwise - false</returns>
         public bool TryGetChild<T>(ByLocator locator, int millisecondsTimeout, out T controlInstance) where T : IControl
         {
-            SetImplicitlyWait(TimeSpan.FromMilliseconds(millisecondsTimeout));
+            TimeSpan initialTimeout = ImplicitWaitTimeout == null ? TimeoutDefault : ImplicitWaitTimeout;
+            ImplicitWaitTimeout = TimeSpan.FromMilliseconds(millisecondsTimeout);
 
             bool isPresented = true;
 
@@ -134,7 +135,7 @@ namespace Unicorn.UI.Core.Driver
                 isPresented = false;
             }
 
-            SetImplicitlyWait(TimeoutDefault);
+            ImplicitWaitTimeout = initialTimeout;
 
             return isPresented;
         }
@@ -172,12 +173,6 @@ namespace Unicorn.UI.Core.Driver
         /// <typeparam name="T">control type</typeparam>
         /// <returns>control instance</returns>
         protected abstract T GetFirstChildWrappedControl<T>();
-
-        /// <summary>
-        /// Sets specified implicitly wait timeout value
-        /// </summary>
-        /// <param name="timeout">new timeout value</param>
-        protected abstract void SetImplicitlyWait(TimeSpan timeout);
 
         /// <summary>
         /// Check control type to be assignable from UI implementation base control.
