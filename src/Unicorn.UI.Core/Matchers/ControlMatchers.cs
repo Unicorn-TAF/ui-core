@@ -71,5 +71,12 @@ namespace Unicorn.UI.Core.Matchers
         /// <returns><see cref="ControlHasTextMatchesMatcher"/> instance</returns>
         public ControlHasTextMatchesMatcher HasTextMatching(string expectedTextRegex) =>
             new ControlHasTextMatchesMatcher(expectedTextRegex);
+
+        /// <summary>
+        /// Matcher to check if <see cref="IHasValueValidation"/> UI control has validation errors.
+        /// </summary>
+        /// <returns><see cref="ControlHasValidationErrorMatcher"/> instance</returns>
+        public ControlHasValidationErrorMatcher HasValidationError() =>
+            new ControlHasValidationErrorMatcher();
     }
 }
