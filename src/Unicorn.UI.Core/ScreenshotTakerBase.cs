@@ -45,7 +45,7 @@ namespace Unicorn.UI.Core
         /// <summary>
         /// Subscribe to Unicorn events.
         /// </summary>
-        public void SubcribeToTafEvents()
+        public void SubscribeToTafEvents()
         {
             Test.OnTestFail += TakeScreenshot;
             SuiteMethod.OnSuiteMethodFail += TakeScreenshot;
@@ -91,7 +91,7 @@ namespace Unicorn.UI.Core
                 filePath = filePath.Substring(0, MaxPathLength - 2) + "~" + (overhead + 2);
             }
 
-            filePath += "." + ImageFormat;
+            filePath += "." + ImageFormat.ToLowerInvariant();
 
             return filePath;
         }

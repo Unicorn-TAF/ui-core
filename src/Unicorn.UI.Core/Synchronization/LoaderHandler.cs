@@ -50,7 +50,7 @@ namespace Unicorn.UI.Core.Synchronization
             }
             while (timer.Elapsed < appearanceTimeout && !loaderAppeared);
 
-            ULog.Debug(Prefix + "\tappeared - {0} : {1} ms.", loaderAppeared, timer.ElapsedMilliseconds);
+            ULog.Debug(Prefix + "  appeared - {0} : {1} ms.", loaderAppeared, timer.ElapsedMilliseconds);
 
             // Wait for loader disappearance during disappearance timeout.
             bool loaderDisappeared;
@@ -63,7 +63,7 @@ namespace Unicorn.UI.Core.Synchronization
 
             timer.Stop();
 
-            ULog.Debug(Prefix + "\tdisappeared - {0} : {1} ms.", loaderDisappeared, timer.ElapsedMilliseconds);
+            ULog.Debug(Prefix + "  disappeared - {0} : {1} ms.", loaderDisappeared, timer.ElapsedMilliseconds);
 
             if (!loaderDisappeared)
             {
