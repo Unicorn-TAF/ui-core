@@ -1,8 +1,8 @@
-﻿/// <summary>
-/// Interface for controls which have values validation logic.
-/// </summary>
-namespace Unicorn.UI.Core.Controls.Interfaces
+﻿namespace Unicorn.UI.Core.Controls.Interfaces
 {
+    /// <summary>
+    /// Interface for controls which have values validation logic.
+    /// </summary>
     public interface IHasValueValidation
     {
         /// <summary>
