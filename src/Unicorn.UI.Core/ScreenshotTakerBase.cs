@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Unicorn.Taf.Core;
 using Unicorn.Taf.Core.Testing;
 
 namespace Unicorn.UI.Core
@@ -47,8 +48,8 @@ namespace Unicorn.UI.Core
         /// </summary>
         public void SubscribeToTafEvents()
         {
-            Test.OnTestFail += TakeScreenshot;
-            SuiteMethod.OnSuiteMethodFail += TakeScreenshot;
+            TafEvents.OnTestFail += TakeScreenshot;
+            TafEvents.OnSuiteMethodFail += TakeScreenshot;
         }
 
         /// <summary>
@@ -56,8 +57,8 @@ namespace Unicorn.UI.Core
         /// </summary>
         public void UnsubscribeFromTafEvents()
         {
-            Test.OnTestFail -= TakeScreenshot;
-            SuiteMethod.OnSuiteMethodFail -= TakeScreenshot;
+            TafEvents.OnTestFail -= TakeScreenshot;
+            TafEvents.OnSuiteMethodFail -= TakeScreenshot;
         }
 
         /// <summary>
