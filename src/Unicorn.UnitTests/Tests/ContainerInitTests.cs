@@ -1,16 +1,18 @@
-﻿using NUnit.Framework;
+﻿using Unicorn.Taf.Core.Testing.Attributes;
+using Unicorn.Taf.Core.Verification;
+using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Driver;
 using Unicorn.UI.Core.PageObject;
 using Unicorn.UnitTests.FakeControls;
 
 namespace Unicorn.UnitTests.Tests
 {
-    [TestFixture]
+    [Suite]
     internal class ContainerInitTests
     {
         private UiContainer container;
 
-        [OneTimeSetUp]
+        [BeforeSuite]
         public void SetUp()
         {
             container = new UiContainer();
