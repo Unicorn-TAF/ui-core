@@ -16,7 +16,7 @@
         /// <summary>
         /// Selects sub-item by name.
         /// </summary>
-        /// <param name="itemName">sub-tem name</param>
+        /// <param name="itemName">sub-item name</param>
         /// <returns>true - if selection was made, false - if the item is already selected</returns>
         bool Select(string itemName);
     }

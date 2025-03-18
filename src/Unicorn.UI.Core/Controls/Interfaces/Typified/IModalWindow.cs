@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Interface for modal windows implementation. 
-    /// Has definitions of of basic methods and properties.
+    /// Has definitions of basic methods and properties.
     /// Implements <see cref="IWindow"/>.
     /// </summary>
     public interface IModalWindow : IWindow

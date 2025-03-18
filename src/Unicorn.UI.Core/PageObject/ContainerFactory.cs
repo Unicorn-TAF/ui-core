@@ -22,7 +22,7 @@ namespace Unicorn.UI.Core.PageObject
         /// To be initialized controls should implement <see cref="IControl"/> and 
         /// have <see cref="FindAttribute"/> or it's derivatives specified for field/property or for type itself.
         /// </summary>
-        /// <typeparam name="T">specific contaiter class type</typeparam>
+        /// <typeparam name="T">specific container class type</typeparam>
         /// <param name="container">container instance</param>
         public static void InitContainer<T>(T container)
         {

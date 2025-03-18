@@ -4,7 +4,7 @@ using Unicorn.UI.Core.Driver;
 namespace Unicorn.UI.Core.Controls.Dynamic
 {
     /// <summary>
-    /// Attribute is used with dynamically defined drids (<see cref="IDynamicGrid"/>) to define their parts. 
+    /// Attribute is used with dynamically defined grids (<see cref="IDynamicGrid"/>) to define their parts. 
     /// Multiple attributes could be used.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
