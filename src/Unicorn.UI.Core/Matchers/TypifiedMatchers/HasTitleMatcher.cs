@@ -1,21 +1,20 @@
 ﻿using System;
 using Unicorn.Taf.Core.Verification.Matchers;
-using Unicorn.UI.Core.Controls.Interfaces.Typified;
+using Unicorn.UI.Core.Controls.Interfaces;
 
 namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
 {
     /// <summary>
-    /// Matcher to check if <see cref="IWindow"/> UI control has specified title. 
+    /// Matcher to check if <see cref="IHasTitle"/> UI control has specified title. 
     /// </summary>
-    [Obsolete("Use HasTitleMatcher instead")]
-    public class WindowHasTitleMatcher : TypeSafeMatcher<IWindow>
+    public class HasTitleMatcher : TypeSafeMatcher<IHasTitle>
     {
         private readonly string _expectedTitle;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WindowHasTitleMatcher"/> class.
+        /// Initializes a new instance of the <see cref="HasTitleMatcher"/> class.
         /// </summary>
-        public WindowHasTitleMatcher(string expectedTitle)
+        public HasTitleMatcher(string expectedTitle)
         {
             _expectedTitle = expectedTitle;
         }
@@ -26,11 +25,11 @@ namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
         public override string CheckDescription => $"has title '{_expectedTitle}'";
 
         /// <summary>
-        /// Checks if window has specified title.
+        /// Checks if control has specified title.
         /// </summary>
         /// <param name="actual">UI control under check</param>
-        /// <returns>true - if window has specified title; otherwise - false</returns>
-        public override bool Matches(IWindow actual)
+        /// <returns>true - if control has specified title; otherwise - false</returns>
+        public override bool Matches(IHasTitle actual)
         {
             if (actual == null)
             {
@@ -39,9 +38,14 @@ namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
             }
 
             string actualTitle = actual.Title;
-            bool titleMatch = actualTitle.Equals(_expectedTitle);
-            DescribeMismatch(actualTitle);
-            return titleMatch;
+
+            string mismatch = Reverse ?
+                actualTitle :
+                Environment.NewLine + MatchersUtils.GetStringsDiff(_expectedTitle, actualTitle);
+
+            DescribeMismatch(mismatch);
+
+            return actualTitle.Equals(_expectedTitle);
         }
     }
 }

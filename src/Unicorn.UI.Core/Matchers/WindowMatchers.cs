@@ -1,4 +1,5 @@
-﻿using Unicorn.UI.Core.Matchers.TypifiedMatchers;
+﻿using System;
+using Unicorn.UI.Core.Matchers.TypifiedMatchers;
 
 namespace Unicorn.UI.Core.Matchers
 {
@@ -12,6 +13,7 @@ namespace Unicorn.UI.Core.Matchers
         /// </summary>
         /// <param name="expectedTitle">expected window title</param>
         /// <returns>matcher instance</returns>
+        [Obsolete("Use UI.Control.HasTitle instead")]
         public WindowHasTitleMatcher HasTitle(string expectedTitle) =>
             new WindowHasTitleMatcher(expectedTitle);
 
