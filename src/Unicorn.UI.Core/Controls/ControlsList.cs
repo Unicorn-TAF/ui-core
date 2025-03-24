@@ -9,7 +9,7 @@ namespace Unicorn.UI.Core.Controls
     /// Describes typified list of controls (should implement <see cref="IControl"/>) with dynamic search procedure 
     /// is triggered each time the collection is accessed.
     /// </summary>
-    /// <typeparam name="T">contol type (should implement <see cref="IControl"/>)</typeparam>
+    /// <typeparam name="T">control type (should implement <see cref="IControl"/>)</typeparam>
     public class ControlsList<T> : IList<T> where T : IControl
     {
         private readonly object _parentContext;

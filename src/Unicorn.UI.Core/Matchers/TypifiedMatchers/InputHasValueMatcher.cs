@@ -1,4 +1,5 @@
-﻿using Unicorn.Taf.Core.Verification.Matchers;
+﻿using System;
+using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Controls.Interfaces.Typified;
 
 namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
@@ -37,7 +38,13 @@ namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
             }
 
             var actualValue = actual.Value;
-            DescribeMismatch(actualValue);
+
+            string mismatch = Reverse ? 
+                actualValue : 
+                Environment.NewLine + MatchersUtils.GetStringsDiff(_expectedValue, actualValue);
+
+            DescribeMismatch(mismatch);
+                
             return actualValue.Equals(_expectedValue);
         }
     }

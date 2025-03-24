@@ -1,4 +1,5 @@
-﻿using Unicorn.UI.Core.Controls.Interfaces;
+﻿using System.Collections.Generic;
+using Unicorn.UI.Core.Controls.Interfaces;
 using Unicorn.UI.Core.Matchers.IControlMatchers;
 using Unicorn.UI.Core.Matchers.TypifiedMatchers;
 
@@ -78,5 +79,45 @@ namespace Unicorn.UI.Core.Matchers
         /// <returns><see cref="ControlHasValidationErrorMatcher"/> instance</returns>
         public ControlHasValidationErrorMatcher HasValidationError() =>
             new ControlHasValidationErrorMatcher();
+
+        /// <summary>
+        /// Gets matcher to check if control has specified title.
+        /// </summary>
+        /// <param name="expectedTitle">expected control title</param>
+        /// <returns>matcher instance</returns>
+        public HasTitleMatcher HasTitle(string expectedTitle) =>
+            new HasTitleMatcher(expectedTitle);
+
+        /// <summary>
+        /// Gets matcher to check if control contains specified sub-items.
+        /// </summary>
+        /// <param name="expectedObjects">expected objects</param>
+        /// <returns>matcher instance</returns>
+        public ControlContainsItemsMatcher ContainsItems(IEnumerable<string> expectedObjects) =>
+            new ControlContainsItemsMatcher(expectedObjects);
+
+        /// <summary>
+        /// Gets matcher to check if control contains specified sub-items.
+        /// </summary>
+        /// <param name="expectedObjects">expected objects</param>
+        /// <returns>matcher instance</returns>
+        public ControlContainsItemsMatcher ContainsItems(params string[] expectedObjects) =>
+            new ControlContainsItemsMatcher(expectedObjects);
+
+        /// <summary>
+        /// Gets matcher to check if control has exactly specified sub-items (order ignored).
+        /// </summary>
+        /// <param name="expectedObjects">expected objects</param>
+        /// <returns>matcher instance</returns>
+        public ControlHasExactlyItemsMatcher HasExactlyItems(IEnumerable<string> expectedObjects) =>
+            new ControlHasExactlyItemsMatcher(expectedObjects);
+
+        /// <summary>
+        /// Gets matcher to check if control has exactly specified sub-items (order ignored).
+        /// </summary>
+        /// <param name="expectedObjects">expected objects</param>
+        /// <returns>matcher instance</returns>
+        public ControlHasExactlyItemsMatcher HasExactlyItems(params string[] expectedObjects) =>
+            new ControlHasExactlyItemsMatcher(expectedObjects);
     }
 }

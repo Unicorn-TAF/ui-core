@@ -4,19 +4,10 @@ namespace Unicorn.UI.Core.Controls.Interfaces.Typified
 {
     /// <summary>
     /// Interface for windows implementation. 
-    /// Has definitions of of basic methods and properties.
-    /// Window is <see cref="IContainer"/>
+    /// Has definitions of basic methods and properties.
     /// </summary>
-    public interface IWindow : IContainer
+    public interface IWindow : IHasTitle
     {
-        /// <summary>
-        /// Gets window title text.
-        /// </summary>
-        string Title
-        {
-            get;
-        }
-
         /// <summary>
         /// Closes window.
         /// </summary>

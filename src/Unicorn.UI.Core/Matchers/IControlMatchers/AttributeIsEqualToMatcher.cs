@@ -1,4 +1,5 @@
-﻿using Unicorn.Taf.Core.Verification.Matchers;
+﻿using System;
+using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Controls;
 
 namespace Unicorn.UI.Core.Matchers.IControlMatchers
@@ -40,7 +41,11 @@ namespace Unicorn.UI.Core.Matchers.IControlMatchers
 
             string actualValue = actual.GetAttribute(_attribute);
 
-            DescribeMismatch($"having '{_attribute}' = '{actualValue}'");
+            string mismatch = Reverse ?
+                actualValue :
+                Environment.NewLine + MatchersUtils.GetStringsDiff(_value, actualValue);
+
+            DescribeMismatch(mismatch);
 
             return actualValue.Equals(_value);
         }

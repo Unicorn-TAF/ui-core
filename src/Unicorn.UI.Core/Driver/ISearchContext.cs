@@ -26,7 +26,7 @@ namespace Unicorn.UI.Core.Driver
         IList<T> FindList<T>(ByLocator locator) where T : IControl;
 
         /// <summary>
-        /// Tries to get child control by specified locator imidiately.
+        /// Tries to get child control by specified locator immediately.
         /// </summary>
         /// <typeparam name="T">control type</typeparam>
         /// <param name="locator">search locator</param>
@@ -47,7 +47,7 @@ namespace Unicorn.UI.Core.Driver
         /// </summary>
         /// <typeparam name="T">control type</typeparam>
         /// <param name="locator">control locator</param>
-        /// <param name="millisecondsTimeout">search timeount (in milliseconds)</param>
+        /// <param name="millisecondsTimeout">search timeout (in milliseconds)</param>
         /// <param name="controlInstance">found control instance (null - if control was not found)</param>
         /// <returns>true - if control was found; otherwise - false</returns>
         bool TryGetChild<T>(ByLocator locator, int millisecondsTimeout, out T controlInstance) where T : IControl;

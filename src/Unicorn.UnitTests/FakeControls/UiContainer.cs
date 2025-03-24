@@ -13,7 +13,7 @@ namespace Unicorn.UnitTests.FakeControls
         private readonly UiControl _controlField;
 
         [FindParam(ControlFieldClass)]
-        private TemplatedCustomControl templatedCustomControlField;
+        private readonly TemplatedCustomControl _templatedCustomControlField;
 
         [Find(Using.WebCss, ControlPropertyCss)]
         public UiControl ControlProperty { get; set; }
@@ -25,6 +25,6 @@ namespace Unicorn.UnitTests.FakeControls
             _controlField;
 
         public TemplatedCustomControl GetTemplatedCustomControl() =>
-            templatedCustomControlField;
+            _templatedCustomControlField;
     }
 }
