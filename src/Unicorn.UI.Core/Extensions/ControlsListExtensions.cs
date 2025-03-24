@@ -36,7 +36,7 @@ namespace Unicorn.UI.Core.Extensions
                 controlsList.FirstOrDefault(b => b.Text.Equals(text));
 
             return control != null ? control :
-                throw new ControlNotFoundException($"{typeof(T).Name} with text '{text}' was not found");
+                throw new ControlNotFoundException($"{typeof(T).Name} with {(trimText ? "trimmed ": "")}text '{text}' was not found");
         }
 
         /// <summary>
