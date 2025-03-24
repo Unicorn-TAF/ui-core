@@ -12,7 +12,7 @@ namespace Unicorn.UI.Core.Synchronization
 
         /// <summary>
         /// During specified timeout and with specified interval waits for some condition to be met 
-        /// for <see cref="IControl"/> instance ingoring specified exception.
+        /// for <see cref="IControl"/> instance ignoring specified exception.
         /// </summary>
         /// <typeparam name="TTarget">type of control under wait</typeparam>
         /// <typeparam name="TReturn">type of control under wait</typeparam>
@@ -46,7 +46,7 @@ namespace Unicorn.UI.Core.Synchronization
 
         /// <summary>
         /// During specified timeout and with specified interval waits for some condition to be met 
-        /// for <see cref="IControl"/> instance ingoring specified exception.
+        /// for <see cref="IControl"/> instance ignoring specified exception.
         /// </summary>
         /// <typeparam name="TTarget">type of control under wait</typeparam>
         /// <typeparam name="TReturn">type of control under wait</typeparam>
@@ -203,7 +203,7 @@ namespace Unicorn.UI.Core.Synchronization
 
         /// <summary>
         /// During specified timeout and with specified interval waits for some condition to be met 
-        /// for <see cref="IControl"/> specified attribute value ingoring specified exception.
+        /// for <see cref="IControl"/> specified attribute value ignoring specified exception.
         /// </summary>
         /// <typeparam name="TTarget">type of control under wait</typeparam>
         /// <typeparam name="TReturn">type of control under wait</typeparam>
@@ -241,7 +241,7 @@ namespace Unicorn.UI.Core.Synchronization
 
         /// <summary>
         /// During specified timeout and with specified interval waits for some condition to be met 
-        /// for <see cref="IControl"/> specified attribute value ingoring specified exception.
+        /// for <see cref="IControl"/> specified attribute value ignoring specified exception.
         /// </summary>
         /// <typeparam name="TTarget">type of control under wait</typeparam>
         /// <typeparam name="TReturn">type of control under wait</typeparam>

@@ -5,7 +5,7 @@ namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
 {
     /// <summary>
     /// Matcher to check if <see cref="IDataGrid"/> UI control has cell located in specified 
-    /// coordinates (indexses or search by text) having specified text.
+    /// coordinates (indexes or search by text) having specified text.
     /// </summary>
     public class DataGridHasCellWithTextMatcher : TypeSafeMatcher<IDataGrid>
     {

@@ -16,6 +16,7 @@ namespace Unicorn.UI.Core.Driver
         /// </summary>
         public U ParentSearchContext { get; set; }
         /** It's ugly, but <see cref="InternalResources.ParentContext"/> refers to this property name **/
+        public U ParentSearchContext { get; set; }
 
         /// <summary>
         /// Gets default implicit wait timeout (30 seconds)
