@@ -23,7 +23,7 @@ namespace Unicorn.UnitTests.Tests
 
         [Test]
         public void HasTitleReverseTestNegative() =>
-            Assert.Throws<AssertionException>(() => 
+            Assert.Throws<AssertionException>(() =>
                 Assert.That(iHasTitle, Is.Not(Ui.Control.HasTitle("some actual title"))));
 
         [Test]
@@ -76,7 +76,7 @@ namespace Unicorn.UnitTests.Tests
 
         [Test]
         public void ContainsItemsTestNegative() =>
-            Assert.Throws<AssertionException>(() => 
+            Assert.Throws<AssertionException>(() =>
                 Assert.That(iHasItems, Ui.Control.ContainsItems("item4", "item5")));
 
         [Test]

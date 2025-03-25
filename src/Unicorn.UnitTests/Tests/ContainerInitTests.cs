@@ -49,7 +49,7 @@ namespace Unicorn.UnitTests.Tests
             UiControl control = container.GetTemplatedCustomControl();
             Assert.That(control.Locator.How, Is.EqualTo(Using.WebXpath));
 
-            string expectedLocator = string.Format(TemplatedCustomControl.TemplatedCustomControlXpath, 
+            string expectedLocator = string.Format(TemplatedCustomControl.TemplatedCustomControlXpath,
                 UiContainer.ControlFieldClass);
 
             Assert.That(control.Locator.Locator, Is.EqualTo(expectedLocator));

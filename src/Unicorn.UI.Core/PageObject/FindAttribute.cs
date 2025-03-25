@@ -22,11 +22,11 @@ namespace Unicorn.UI.Core.PageObject
         /// <summary>
         /// Gets or sets control locator.
         /// </summary>
-        public ByLocator Locator 
-        { 
-            get; 
+        public ByLocator Locator
+        {
+            get;
 
-            protected set; 
+            protected set;
         }
     }
 }

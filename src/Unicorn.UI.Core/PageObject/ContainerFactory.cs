@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Unicorn.UI.Core.Controls;
 using Unicorn.UI.Core.Controls.Dynamic;
@@ -153,7 +153,7 @@ namespace Unicorn.UI.Core.PageObject
             var definitions = classMember.GetCustomAttributes(typeof(DefineAttribute), true) as DefineAttribute[];
             var dictionary = new Dictionary<int, ByLocator>();
 
-            Array.ForEach(definitions, 
+            Array.ForEach(definitions,
                 d => dictionary.Add(d.ElementDefinition, d.Locator));
 
             (control as IDynamicControl).Populate(dictionary);
@@ -162,7 +162,7 @@ namespace Unicorn.UI.Core.PageObject
         private static ByLocator GetControlLocator(MemberInfo memberInfo, Type controlType)
         {
             FindAttribute findAttribute = memberInfo.GetCustomAttribute<FindAttribute>(true);
-            
+
             if (findAttribute != null)
             {
                 return findAttribute.Locator;
@@ -172,10 +172,10 @@ namespace Unicorn.UI.Core.PageObject
 
             if (findParamAttribute != null)
             {
-                FindTemplateAttribute findTemplateAttribute = 
+                FindTemplateAttribute findTemplateAttribute =
                     controlType.GetCustomAttribute<FindTemplateAttribute>(true);
 
-                if (findTemplateAttribute == null) 
+                if (findTemplateAttribute == null)
                 {
                     throw new CustomAttributeFormatException(
                         "Locator template is not specified for type " + controlType.Name);

@@ -9,7 +9,7 @@ namespace Unicorn.UI.Core.PageObject
     public class FindParamAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FindParamAttribute"/> class with specified parameter value
+        /// Initializes a new instance of the <see cref="FindParamAttribute"/> class with specified perameter value
         /// </summary>
         /// <param name="locatorParam">locator template parameter value</param>
         public FindParamAttribute(string locatorParam)
@@ -20,9 +20,9 @@ namespace Unicorn.UI.Core.PageObject
         /// <summary>
         /// Gets parameter value.
         /// </summary>
-        public string LocatorParam 
-        { 
-            get; 
+        public string LocatorParam
+        {
+            get;
         }
     }
 }

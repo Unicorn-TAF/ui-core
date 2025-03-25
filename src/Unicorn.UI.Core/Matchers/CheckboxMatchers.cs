@@ -11,14 +11,14 @@ namespace Unicorn.UI.Core.Matchers
         /// Gets matcher to check if checkbox is checked.
         /// </summary>
         /// <returns>matcher instance</returns>
-        public CheckboxCheckedMatcher Checked() => 
+        public CheckboxCheckedMatcher Checked() =>
             new CheckboxCheckedMatcher();
 
         /// <summary>
         /// Gets matcher to check if checkbox has desired check state.
         /// </summary>
         /// <returns>matcher instance</returns>
-        public CheckboxHasCheckStateMatcher HasCheckState(bool isChecked) => 
+        public CheckboxHasCheckStateMatcher HasCheckState(bool isChecked) =>
             new CheckboxHasCheckStateMatcher(isChecked);
     }
 }

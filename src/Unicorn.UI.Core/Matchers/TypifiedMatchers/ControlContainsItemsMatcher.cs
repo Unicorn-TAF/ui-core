@@ -54,7 +54,7 @@ namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
                 .TrimOutputTo(1000)
                 .UseItemsBulletsInOutput(">");
 
-            bool result = Reverse ? 
+            bool result = Reverse ?
                 !comparer.NotContains(actual.Items, _expectedItems)
                 : comparer.Contains(actual.Items, _expectedItems);
 

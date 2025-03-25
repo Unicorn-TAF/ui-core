@@ -31,7 +31,7 @@ namespace Unicorn.UI.Core.Controls
         /// </summary>
         /// <param name="info">serialization info</param>
         /// <param name="context">streaming context</param>
-        protected ControlInvalidStateException(SerializationInfo info, StreamingContext context) 
+        protected ControlInvalidStateException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }

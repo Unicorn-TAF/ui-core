@@ -54,7 +54,7 @@ namespace Unicorn.UI.Core.Driver
         /// <exception cref="ControlNotFoundException">Thrown in case control was not found during implicitly wait timeout</exception>
         public IControl Find(ByLocator locator)
         {
-            MethodInfo method = GetType().GetMethod(nameof(WaitForWrappedControl), 
+            MethodInfo method = GetType().GetMethod(nameof(WaitForWrappedControl),
                 BindingFlags.NonPublic | BindingFlags.Instance);
 
             MethodInfo generic = method.MakeGenericMethod(ControlsBaseType);

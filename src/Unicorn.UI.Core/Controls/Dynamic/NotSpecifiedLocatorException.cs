@@ -31,7 +31,7 @@ namespace Unicorn.UI.Core.Controls.Dynamic
         /// </summary>
         /// <param name="info">serialization info</param>
         /// <param name="context">streaming context</param>
-        protected NotSpecifiedLocatorException(SerializationInfo info, StreamingContext context) 
+        protected NotSpecifiedLocatorException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }

@@ -25,11 +25,11 @@ namespace Unicorn.UI.Core.Synchronization
         /// <returns>control instance</returns>
         /// <exception cref="TimeoutException">is thrown if wait reached timeout</exception>
         public static TReturn Wait<TTarget, TReturn>(
-            this TTarget control, 
-            Func<TTarget, TReturn> command, 
-            TimeSpan commandTimeout, 
-            TimeSpan pollingInterval, 
-            Type ignoreException, 
+            this TTarget control,
+            Func<TTarget, TReturn> command,
+            TimeSpan commandTimeout,
+            TimeSpan pollingInterval,
+            Type ignoreException,
             string message) where TTarget : IControl
         {
             var wait = new UiWait<TTarget>(control)
@@ -58,10 +58,10 @@ namespace Unicorn.UI.Core.Synchronization
         /// <returns>control instance</returns>
         /// <exception cref="TimeoutException">is thrown if wait reached timeout</exception>
         public static TReturn Wait<TTarget, TReturn>(
-            this TTarget control, 
-            Func<TTarget, TReturn> command, 
-            TimeSpan commandTimeout, 
-            TimeSpan pollingInterval, 
+            this TTarget control,
+            Func<TTarget, TReturn> command,
+            TimeSpan commandTimeout,
+            TimeSpan pollingInterval,
             Type ignoreException) where TTarget : IControl =>
             Wait(control, command, commandTimeout, pollingInterval, ignoreException, string.Empty);
 
@@ -79,10 +79,10 @@ namespace Unicorn.UI.Core.Synchronization
         /// <returns>control instance</returns>
         /// <exception cref="TimeoutException">is thrown if wait reached timeout</exception>
         public static TReturn Wait<TTarget, TReturn>(
-            this TTarget control, 
-            Func<TTarget, TReturn> command, 
-            TimeSpan commandTimeout, 
-            TimeSpan pollingInterval, 
+            this TTarget control,
+            Func<TTarget, TReturn> command,
+            TimeSpan commandTimeout,
+            TimeSpan pollingInterval,
             string message) where TTarget : IControl
         {
             var wait = new UiWait<TTarget>(control)
@@ -108,9 +108,9 @@ namespace Unicorn.UI.Core.Synchronization
         /// <returns>control instance</returns>
         /// <exception cref="TimeoutException">is thrown if wait reached timeout</exception>
         public static TReturn Wait<TTarget, TReturn>(
-            this TTarget control, 
-            Func<TTarget, TReturn> command, 
-            TimeSpan commandTimeout, 
+            this TTarget control,
+            Func<TTarget, TReturn> command,
+            TimeSpan commandTimeout,
             TimeSpan pollingInterval) where TTarget : IControl =>
             Wait(control, command, commandTimeout, pollingInterval, string.Empty);
 
@@ -170,8 +170,8 @@ namespace Unicorn.UI.Core.Synchronization
         /// <returns>control instance</returns>
         /// <exception cref="TimeoutException">is thrown if wait reached timeout</exception>
         public static TReturn Wait<TTarget, TReturn>(
-            this TTarget control, 
-            Func<TTarget, TReturn> command, 
+            this TTarget control,
+            Func<TTarget, TReturn> command,
             string message) where TTarget : IControl
         {
             var wait = new UiWait<TTarget>(control)
@@ -193,7 +193,7 @@ namespace Unicorn.UI.Core.Synchronization
         /// <returns>control instance</returns>
         /// <exception cref="TimeoutException">is thrown if wait reached timeout</exception>
         public static TReturn Wait<TTarget, TReturn>(
-            this TTarget control, 
+            this TTarget control,
             Func<TTarget, TReturn> command) where TTarget : IControl =>
             Wait(control, command, string.Empty);
 
@@ -387,10 +387,10 @@ namespace Unicorn.UI.Core.Synchronization
         /// <returns>control instance</returns>
         /// <exception cref="TimeoutException">is thrown if wait reached timeout</exception>
         public static TReturn Wait<TTarget, TReturn>(
-            this TTarget control, 
-            Func<TTarget, string, string, TReturn> command, 
-            string attribute, 
-            string value, 
+            this TTarget control,
+            Func<TTarget, string, string, TReturn> command,
+            string attribute,
+            string value,
             string message) where TTarget : IControl
         {
             var wait = new UiWait<TTarget>(control, attribute, value)
