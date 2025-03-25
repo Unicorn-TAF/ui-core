@@ -31,7 +31,6 @@ namespace Unicorn.UI.Core.Driver
         /// <summary>
         /// Gets type of basic control for specific UI module implementation.
         /// </summary>
-        /** It's ugly, but <see cref="InternalResources.ControlsBaseType"/> refers to this property name **/
         protected abstract Type ControlsBaseType { get; }
 
         /// <summary>
