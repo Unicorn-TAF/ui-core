@@ -14,7 +14,6 @@ namespace Unicorn.UI.Core.Driver
         /// <summary>
         /// Gets or sets control parent search context (context from which current control was searched for).
         /// </summary>
-        public U ParentSearchContext { get; set; }
         /** It's ugly, but <see cref="InternalResources.ParentContext"/> refers to this property name **/
         public U ParentSearchContext { get; set; }
 
@@ -32,6 +31,7 @@ namespace Unicorn.UI.Core.Driver
         /// <summary>
         /// Gets type of basic control for specific UI module implementation.
         /// </summary>
+        /** It's ugly, but <see cref="InternalResources.ControlsBaseType"/> refers to this property name **/
         protected abstract Type ControlsBaseType { get; }
 
         /// <summary>
@@ -80,11 +80,8 @@ namespace Unicorn.UI.Core.Driver
         /// <typeparam name="T">control type</typeparam>
         /// <param name="locator">locator to search by</param>
         /// <returns>true - if control was found; otherwise - false</returns>
-        public bool TryGetChild<T>(ByLocator locator) where T : IControl
-        {
-            T control;
-            return TryGetChild<T>(locator, 0, out control);
-        }
+        public bool TryGetChild<T>(ByLocator locator) where T : IControl =>
+            TryGetChild<T>(locator, 0, out T control);
 
         /// <summary>
         /// Immediately tries to get control by specified locator.
@@ -132,7 +129,7 @@ namespace Unicorn.UI.Core.Driver
             }
             catch (ControlNotFoundException)
             {
-                controlInstance = default(T);
+                controlInstance = default;
                 isPresented = false;
             }
 
