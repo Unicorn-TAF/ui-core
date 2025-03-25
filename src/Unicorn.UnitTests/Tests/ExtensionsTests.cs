@@ -33,7 +33,7 @@ namespace Unicorn.UnitTests.Tests
         [Test]
         public void TestGetByText() =>
             Assert.That(controlsList.GetByText("string3").Text, EqualTo("string3"));
-        
+
         [Test]
         public void TestGetByTextTrimmed() =>
              Assert.That(controlsList.GetByText("string5").Text, EqualTo(" string5 "));

@@ -20,9 +20,9 @@ namespace Unicorn.UI.Core.PageObject
         /// <summary>
         /// Gets parameter value.
         /// </summary>
-        public string LocatorParam 
-        { 
-            get; 
+        public string LocatorParam
+        {
+            get;
         }
     }
 }

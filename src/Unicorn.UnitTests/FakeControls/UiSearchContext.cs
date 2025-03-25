@@ -8,10 +8,10 @@ namespace Unicorn.UnitTests.FakeControls
     {
         protected override Type ControlsBaseType { get; } = typeof(UiControl);
 
-        protected override TimeSpan ImplicitWaitTimeout 
-        { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); 
+        protected override TimeSpan ImplicitWaitTimeout
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
         }
 
         protected override T GetFirstChildWrappedControl<T>()

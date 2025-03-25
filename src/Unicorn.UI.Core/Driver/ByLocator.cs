@@ -6,12 +6,12 @@
     public enum Using
     {
         /// <summary>
-        /// Search by Css (web only)
+        /// Search by CSS (web only)
         /// </summary>
         WebCss,
 
         /// <summary>
-        /// Search by Xpath (web only)
+        /// Search by XPath (web only)
         /// </summary>
         WebXpath,
 
@@ -31,7 +31,7 @@
         Name,
 
         /// <summary>
-        /// Search by control Id
+        /// Search by control ID
         /// </summary>
         Id
     }
@@ -63,45 +63,45 @@
         public string Locator { get; protected set; }
 
         /// <summary>
-        /// Gets Id locator.
+        /// Gets ID locator.
         /// </summary>
         /// <param name="locator">search query</param>
-        /// <returns>xpath locator</returns>
+        /// <returns>ID locator</returns>
         public static ByLocator Id(string locator) => new ByLocator(Using.Id, locator);
 
         /// <summary>
         /// Gets Name locator.
         /// </summary>
         /// <param name="locator">search query</param>
-        /// <returns>xpath locator</returns>
+        /// <returns>Name locator</returns>
         public static ByLocator Name(string locator) => new ByLocator(Using.Name, locator);
 
         /// <summary>
         /// Gets Class name locator.
         /// </summary>
         /// <param name="locator">search query</param>
-        /// <returns>xpath locator</returns>
+        /// <returns>Class locator</returns>
         public static ByLocator Class(string locator) => new ByLocator(Using.Class, locator);
 
         /// <summary>
-        /// Gets Css locator.
+        /// Gets CSS locator.
         /// </summary>
         /// <param name="locator">search query</param>
-        /// <returns>xpath locator</returns>
+        /// <returns>CSS locator</returns>
         public static ByLocator Css(string locator) => new ByLocator(Using.WebCss, locator);
 
         /// <summary>
         /// Gets Tag locator.
         /// </summary>
         /// <param name="locator">search query</param>
-        /// <returns>xpath locator</returns>
+        /// <returns>Tag locator</returns>
         public static ByLocator Tag(string locator) => new ByLocator(Using.WebTag, locator);
 
         /// <summary>
-        /// Gets Xpath locator.
+        /// Gets XPath locator.
         /// </summary>
         /// <param name="locator">search query</param>
-        /// <returns>xpath locator</returns>
+        /// <returns>XPath locator</returns>
         public static ByLocator Xpath(string locator) => new ByLocator(Using.WebXpath, locator);
 
         /// <summary>

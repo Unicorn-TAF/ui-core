@@ -24,9 +24,9 @@ namespace Unicorn.UI.Core.PageObject
         /// <summary>
         /// Gets search method.
         /// </summary>
-        public Using How 
-        { 
-            get; 
+        public Using How
+        {
+            get;
         }
 
         /// <summary>

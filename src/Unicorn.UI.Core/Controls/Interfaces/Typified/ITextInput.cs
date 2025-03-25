@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Interface for text inputs (text edits) implementation. 
-    /// Has definitions of of basic methods and properties.
+    /// Has definitions of basic methods and properties.
     /// </summary>
     public interface ITextInput
     {
