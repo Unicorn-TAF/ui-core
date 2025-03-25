@@ -113,7 +113,7 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <param name="element">target element</param>
         /// <param name="textPart">expected text part</param>
         /// <returns><c>element</c> when text contains expected value and <c>null</c> otherwise</returns>
-        public static TTarget TextContains<TTarget>(this TTarget element, string textPart) where TTarget : class, IControl =>
+        public static TTarget ContainsText<TTarget>(this TTarget element, string textPart) where TTarget : class, IControl =>
             element.Text.Contains(textPart) ? element : null;
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <param name="element">target element</param>
         /// <param name="textPart">text part</param>
         /// <returns><c>element</c> when text does not contain expected value and <c>null</c> otherwise</returns>
-        public static TTarget TextDoesNotContain<TTarget>(this TTarget element, string textPart) where TTarget : class, IControl =>
+        public static TTarget DoesNotContainText<TTarget>(this TTarget element, string textPart) where TTarget : class, IControl =>
             !element.Text.Contains(textPart) ? element : null;
     }
 }
