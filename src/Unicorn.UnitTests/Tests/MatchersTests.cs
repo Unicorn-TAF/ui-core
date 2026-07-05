@@ -10,12 +10,14 @@ namespace Unicorn.UnitTests.Tests
     internal class MatchersTests
     {
         private HasTitleControl iHasTitle;
+        private HasValueControl iHasValue;
         private HasItemsControl iHasItems;
 
         [BeforeSuite]
         public void SetUp()
         {
             iHasTitle = new HasTitleControl();
+            iHasValue = new HasValueControl();
             iHasItems = new HasItemsControl();
         }
 
@@ -38,6 +40,28 @@ namespace Unicorn.UnitTests.Tests
         public void HasTitleTestNegative() =>
             Assert.Throws<AssertionException>(() =>
                 Assert.That(iHasTitle, Ui.Control.HasTitle("some atual title")));
+
+        #endregion
+
+        #region HasValue
+
+        [Test]
+        public void HasValueReverseTestNegative() =>
+            Assert.Throws<AssertionException>(() =>
+                Assert.That(iHasValue, Is.Not(Ui.Control.HasValue("some actual value"))));
+
+        [Test]
+        public void HasValueTestPositive() =>
+            Assert.That(iHasValue, Ui.Control.HasValue("some actual value"));
+
+        [Test]
+        public void HasValueReverseTestPositive() =>
+            Assert.That(iHasValue, Is.Not(Ui.Control.HasValue("sofe actual value")));
+
+        [Test]
+        public void HasValueTestNegative() =>
+            Assert.Throws<AssertionException>(() =>
+                Assert.That(iHasValue, Ui.Control.HasValue("some atual value")));
 
         #endregion
 
