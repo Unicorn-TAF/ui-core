@@ -1,12 +1,13 @@
 ﻿using Unicorn.Taf.Core.Verification.Matchers;
+using Unicorn.UI.Core.Controls.Interfaces;
 using Unicorn.UI.Core.Controls.Interfaces.Typified;
 
 namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
 {
     /// <summary>
-    /// Matcher to check if <see cref="IWindow"/> UI control has specified title. 
+    /// Matcher to check if <see cref="IWindow"/> UI control has specified title.
     /// </summary>
-    public class WindowHasTitleMatcher : TypeSafeMatcher<IWindow>
+    public class WindowHasTitleMatcher : TypeSafeMatcher<IHasTitle>
     {
         private readonly string _expectedTitle;
 
@@ -28,7 +29,7 @@ namespace Unicorn.UI.Core.Matchers.TypifiedMatchers
         /// </summary>
         /// <param name="actual">UI control under check</param>
         /// <returns>true - if window has specified title; otherwise - false</returns>
-        public override bool Matches(IWindow actual)
+        public override bool Matches(IHasTitle actual)
         {
             if (actual == null)
             {

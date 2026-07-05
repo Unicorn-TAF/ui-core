@@ -1,19 +1,11 @@
 ﻿namespace Unicorn.UI.Core.Controls.Interfaces.Typified
 {
     /// <summary>
-    /// Interface for text inputs (text edits) implementation. 
+    /// Interface for text inputs (text edits) implementation.
     /// Has definitions of of basic methods and properties.
     /// </summary>
-    public interface ITextInput
+    public interface ITextInput : IHasValue
     {
-        /// <summary>
-        /// Gets text input value.
-        /// </summary>
-        string Value
-        {
-            get;
-        }
-
         /// <summary>
         /// Send keys (add text) to already existing input value.
         /// </summary>
