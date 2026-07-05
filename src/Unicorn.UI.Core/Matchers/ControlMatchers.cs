@@ -89,6 +89,14 @@ namespace Unicorn.UI.Core.Matchers
             new HasTitleMatcher(expectedTitle);
 
         /// <summary>
+        /// Gets matcher to check if control has specified value.
+        /// </summary>
+        /// <param name="expectedValue">expected control value</param>
+        /// <returns>matcher instance</returns>
+        public InputHasValueMatcher HasValue(string expectedValue) =>
+            new InputHasValueMatcher(expectedValue);
+
+        /// <summary>
         /// Gets matcher to check if control contains specified sub-items.
         /// </summary>
         /// <param name="expectedObjects">expected objects</param>
