@@ -43,6 +43,13 @@ namespace Unicorn.UI.Core.Matchers
             new ControlVisibleMatcher();
 
         /// <summary>
+        /// Matcher to check if UI control exists (Works only for PageObject described controls!).
+        /// </summary>
+        /// <returns><see cref="ControlExistsMatcher"/> instance</returns>
+        public ControlExistsMatcher ExistsInPageObject() =>
+            new ControlExistsMatcher();
+
+        /// <summary>
         /// Matcher to check if <see cref="ISelectable"/> UI control is selected.
         /// </summary>
         /// <returns><see cref="SelectedMatcher"/> instance</returns>
