@@ -1,4 +1,6 @@
 ﻿using Unicorn.UI.Core.Controls;
+using Unicorn.UI.Core.Controls.Interfaces;
+using Unicorn.UI.Core.Controls.Interfaces.Typified;
 
 namespace Unicorn.UI.Core.Synchronization.Conditions
 {
@@ -117,6 +119,16 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
             (element as IControl).Text.Contains(textPart) ? element : null;
 
         /// <summary>
+        /// Checks if element text has expected value.
+        /// </summary>
+        /// <typeparam name="TTarget">Target element type implementing <see cref="IControl"/></typeparam>
+        /// <param name="element">Target element</param>
+        /// <param name="expectedValue">expected control value</param>
+        /// <returns><c>element</c> when control has expected value and <c>null</c> otherwise</returns>
+        public static TTarget HasValue<TTarget>(this TTarget element, string expectedValue) where TTarget : class, IControl, IHasValue =>
+            (element as IHasValue).Value.Equals(expectedValue) ? element : null;
+
+        /// <summary>
         /// Checks if element text does not contain expected value.
         /// </summary>
         /// <typeparam name="TTarget">Target element type implementing <see cref="IControl"/></typeparam>
@@ -125,5 +137,23 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <returns><c>element</c> when text does not contain expected value and <c>null</c> otherwise</returns>
         public static TTarget DoesNotContainText<TTarget>(this TTarget element, string textPart) where TTarget : class, IControl =>
             !(element as IControl).Text.Contains(textPart) ? element : null;
+
+        /// <summary>
+        /// Checks if control has any items.
+        /// </summary>
+        /// <typeparam name="TTarget">Target element type implementing <see cref="IControl"/> and <see cref="IHasItems"/></typeparam>
+        /// <param name="element">Target element</param>
+        /// <returns><c>true</c> when control has at leas one item and <c>false</c> otherwise</returns>
+        public static TTarget HasAtLeastOneItem<TTarget>(this TTarget element) where TTarget : class, IControl, IHasItems =>
+            (element as IHasItems).Items.Count > 0 ? element : null;
+
+        /// <summary>
+        /// Checks if data grid has any rows.
+        /// </summary>
+        /// <typeparam name="TTarget">Target element type implementing <see cref="IControl"/> and <see cref="IDataGrid"/></typeparam>
+        /// <param name="element">Target element</param>
+        /// <returns><c>true</c> when data grid has at leas one row and <c>false</c> otherwise</returns>
+        public static TTarget HasAtLeastOneRow<TTarget>(this TTarget element) where TTarget : class, IControl, IDataGrid =>
+            (element as IDataGrid).RowsCount > 0 ? element : null;
     }
 }
