@@ -126,7 +126,7 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <param name="expectedValue">expected control value</param>
         /// <returns><c>element</c> when control has expected value and <c>null</c> otherwise</returns>
         public static TTarget HasValue<TTarget>(this TTarget element, string expectedValue) where TTarget : class, IControl, IHasValue =>
-            element.Value.Equals(expectedValue) ? element : null;
+            (element as IHasValue).Value.Equals(expectedValue) ? element : null;
 
         /// <summary>
         /// Checks if element text does not contain expected value.
@@ -145,7 +145,7 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <param name="element">Target element</param>
         /// <returns><c>true</c> when control has at leas one item and <c>false</c> otherwise</returns>
         public static TTarget HasAnyItems<TTarget>(this TTarget element) where TTarget : class, IControl, IHasItems =>
-            element.Items.Count > 0 ? element : null;
+            (element as IHasItems).Items.Count > 0 ? element : null;
 
         /// <summary>
         /// Checks if data grid has any rows.
@@ -154,6 +154,6 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <param name="element">Target element</param>
         /// <returns><c>true</c> when data grid has at leas one row and <c>false</c> otherwise</returns>
         public static TTarget HasRows<TTarget>(this TTarget element) where TTarget : class, IControl, IDataGrid =>
-            element.RowsCount > 0 ? element : null;
+            (element as IDataGrid).RowsCount > 0 ? element : null;
     }
 }
