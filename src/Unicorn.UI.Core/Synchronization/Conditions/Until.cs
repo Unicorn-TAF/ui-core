@@ -144,7 +144,7 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <typeparam name="TTarget">Target element type implementing <see cref="IControl"/> and <see cref="IHasItems"/></typeparam>
         /// <param name="element">Target element</param>
         /// <returns><c>true</c> when control has at leas one item and <c>false</c> otherwise</returns>
-        public static TTarget HasAnyItems<TTarget>(this TTarget element) where TTarget : class, IControl, IHasItems =>
+        public static TTarget HasAtLeastOneItem<TTarget>(this TTarget element) where TTarget : class, IControl, IHasItems =>
             (element as IHasItems).Items.Count > 0 ? element : null;
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace Unicorn.UI.Core.Synchronization.Conditions
         /// <typeparam name="TTarget">Target element type implementing <see cref="IControl"/> and <see cref="IDataGrid"/></typeparam>
         /// <param name="element">Target element</param>
         /// <returns><c>true</c> when data grid has at leas one row and <c>false</c> otherwise</returns>
-        public static TTarget HasRows<TTarget>(this TTarget element) where TTarget : class, IControl, IDataGrid =>
+        public static TTarget HasAtLeastOneRow<TTarget>(this TTarget element) where TTarget : class, IControl, IDataGrid =>
             (element as IDataGrid).RowsCount > 0 ? element : null;
     }
 }
